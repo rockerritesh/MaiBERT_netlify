@@ -1,0 +1,12 @@
+.limi{
+    background-color: var(--color-white);
+    color:var(--color-black);
+    margin-top: -0.4rem;
+}
+
+.icon1 {
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-black); /* Customize the color as needed */
+  }

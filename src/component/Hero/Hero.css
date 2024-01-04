@@ -1,0 +1,71 @@
+.hero {
+    background-color: var(--color-hero);
+    color: var(--color-black);
+}
+
+.hero-banner .btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 9;
+}
+.hero-banner .btn-primary {
+    color: var(--color-white);
+    background-color: rgba(1, 164, 121, 0.1);
+    border-color: var(--color-white);
+    transition: color 0.5s ease-in-out; 
+}
+.hero-banner .btn:before {
+    content: "";
+    background: var(--color-cornflowerblue);
+    width: 0.4rem;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -ms-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s;
+}
+.hero-banner .btn:hover:before {
+    width: 100%;
+    color: var(--color-black);
+}
+
+.styles {
+    font-family: 'Lato', sans-serif;
+}
+
+@keyframes slideInBump {
+    0% {
+      transform: translateX(-100%) translateY(0);
+    }
+    20%, 50%, 80% {
+      transform: translateX(0) translateY(0);
+    }
+    40% {
+      transform: translateX(0) translateY(-20px);
+    }
+    60% {
+      transform: translateX(0) translateY(-10px);
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+  
+  .hero-banner .hero .slide-in-bump {
+    display: inline-block;
+    animation: slideInBump 1s ease-in-out;
+  }
+
+  .rounded-top-left-0 {
+    border-top-left-radius: 0.4rem;
+  }
+  
+  .rounded-bottom-left-0 {
+    border-bottom-left-radius: 0.4rem;
+  }
+  

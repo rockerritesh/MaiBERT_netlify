@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --paragraph-p3-regular: Inter;
+  --font-montserrat: Montserrat;
+  --font-dm-sans: "DM Sans";
+
+  /* font sizes */
+  --paragraph-p3-regular-size: 1.6rem;
+  --header-h5-size: 2.8rem;
+  --paragraph-p2-bold-size: 1.8rem;
+  --header-h1-size: 7.2rem;
+  --header-h2-size: 6.4rem;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-darkslateblue: #043873;
+  --color-cornflowerblue: #4f9cf9;
+  --color-khaki: #ffe492;
+  --color-gray-100: #212529;
+  --color-gray-200: #01252a;
+  --primary-100: #c4defd;
+
+  /* Gaps */
+  --gap-81xl: 10rem;
+  --gap-13xl: 3.2rem;
+  --gap-41xl: 6rem;
+  --gap-3xs: 1rem;
+  --gap-base: 1.6rem;
+  --gap-mini: 1.5rem;
+  --gap-30xl: 4.9rem;
+  --gap-34xl: 5.3rem;
+  --gap-6xs: 0.7rem;
+  --gap-9xs: 0.4rem;
+  --gap-16xl: 3.5rem;
+  --gap-5xl: 2.4rem;
+
+  /* Paddings */
+  --padding-121xl: 14rem;
+  --padding-201xl: 22rem;
+  --padding-xl: 2rem;
+  --padding-21xl: 4rem;
+  --padding-41xl: 6rem;
+  --padding-base: 1.6rem;
+
+  /* Border radiuses */
+  --br-5xs: 0.8rem;
+  --br-3xs: 1rem;
+  --br-7xs: 0.6rem;
+}

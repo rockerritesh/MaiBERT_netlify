@@ -1,0 +1,139 @@
+/* Add this CSS to your stylesheet or in a style tag in your component */
+.nav-link {
+  cursor: pointer; /* Set the desired cursor style */
+}
+
+.navbar-brand {
+    color: var(--color-black);
+    font-weight: normal; /* Initial font weight */
+    position: relative;
+    overflow: hidden;
+    transition: color 0.5s ease; /* Add color transition on hover */
+    font-weight: bold;
+    font-family: var(--font-dm-sans), sans-serif;
+  }
+  
+  .navbar-brand:hover {
+    color: var(--color-white); /* Change to blue color on hover */
+    
+  }
+  
+  .navbar-brand::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.2rem; /* Adjust the thickness of the line as needed */
+    background-color: var(--color-black);
+    bottom: 0;
+    transform: translateY(100%) scaleX(0);
+    transform-origin: bottom right;
+    animation: underlineAnimation 2s infinite linear;
+  }
+  
+  .navbar-brand::after {
+    content: 'M';
+    position: absolute;
+    font-size: 2rem; /* Adjust the font size as needed */
+    color: var(--color-white);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+  }
+  
+  .navbar-brand:hover::after {
+    color: var(--color-black); 
+    animation: letterAnimationHover 2s infinite linear;
+  }
+  
+  @keyframes underlineAnimation {
+    to {
+      transform: translateY(0) scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+  
+  @keyframes letterAnimation {
+    to {
+      transform: translate(-50%, -50%) scale(1) rotate(360deg);
+    }
+  }
+  
+  @keyframes letterAnimationHover {
+    to {
+      transform: translate(-50%, -50%) scale(1) rotate(720deg); /* Adjust rotation as needed */
+    }
+  }
+  
+  
+.navbar-nav .nav-link {
+    color: var(--color-black); /* Default color for navbar items */
+  }
+  
+  .navbar-nav .nav-link.active,
+  .navbar-nav .nav-link:hover {
+    color: var(--color-cornflowerblue); /* Replace 'yourHoverColor' with the desired hover color */
+  }
+  
+  /* Add this CSS to your stylesheet or in a style tag in your component */
+.navbar-nav .nav-link {
+    position: relative;
+  }
+  
+  .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Adjust the thickness of the line as needed */
+    background-color:var(--color-cornflowerblue) ; /* Replace 'yourUnderlineColor' with the desired color */
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link.active::after {
+    transform: scaleX(1);
+  }
+  
+  /* Add this CSS to your stylesheet or in a style tag in your component */
+.btn-toggle-mode {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-toggle-mode.dark-mode {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+  
+  .btn-toggle-mode:hover {
+    background-color: var(--color-cornflowerblue);
+  }
+  
+  .btn-toggle-mode.dark-mode:hover {
+    background-color: var(--color-cornflowerblue);
+  }
+
+  .bg-black {
+    background-color: var(--color-black) !important;
+    /* The `!important` is used to ensure the style takes precedence over Bootstrap's default styles */
+  }
+
+  .customize {
+    color: var(--color-white);
+  }
+
+  .dropdown-menu a.dropdown-item:hover {
+    background-color: var(--color-cornflowerblue); /* Adjust the background color as needed */
+  }
+  
+  .dropdown-menu { /* Text color */
+    background-color: var(--color-white); /* Background color */
+  }
+
+  .dropdown-item{
+    color:var(--color-black)
+  }

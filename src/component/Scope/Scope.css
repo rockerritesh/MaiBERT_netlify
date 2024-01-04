@@ -1,0 +1,12 @@
+.scope{
+    background-color: var(--color-white);
+    color:var(--color-black)
+}
+
+.icon {
+    font-size: 4rem;
+    width: 4rem;
+    height: 4rem;
+    color: var(--color-black); /* Customize the color as needed */
+  }
+
