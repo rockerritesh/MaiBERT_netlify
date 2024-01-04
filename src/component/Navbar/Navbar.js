@@ -3,50 +3,12 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Navbar.css";
 import { Link as ScrollLink } from "react-scroll";
+import data from "../../data.json"
 
 const Navbar = () => {
-
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "Project Objective" },
-    { id: "scope", label: "Scope" },
-    { id: "limi", label: "Limitations & Enhancement" },
-  ];
-  
-  const lightModeColors = {
-    "--color-white": "#fff",
-    "--color-darkslateblue": "#043873",
-    "--color-cornflowerblue": "#4f9cf9",
-    "--color-khaki": "#ffe492",
-    "--color-gray-100": "#212529",
-    "--color-gray-200": "#01252a",
-    "--primary-100": "#c4defd",
-    "--color-black": "#212529",
-    "--color-hero": "#fff",
-  };
-
-  const darkModeColors = {
-    "--color-white": "#212529",
-    "--color-darkslateblue": "#3066A0",
-    "--color-cornflowerblue": "#4f9cf9",
-    "--color-khaki": "#beb976",
-    "--color-gray-100": "#4f9cf9",
-    "--color-gray-200": "#0b1820",
-    "--primary-100": "#234080",
-    "--color-black": "#fff",
-    "--color-hero": "#343a40",
-  };
-
   const [activeNavItem, setActiveNavItem] = useState("home");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [initialRender, setInitialRender] = useState(true);
-  const dropdownItems = [
-    { text: "Latest", icon: "fa-clock" },
-    { text: "Sports", icon: "fa-futbol" },
-    { text: "Politics", icon: "fa-balance-scale" },
-    { text: "EduTech", icon: "fa-graduation-cap" },
-    { text: "Literature", icon: "fa-book" },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,7 +45,7 @@ const Navbar = () => {
   useEffect(() => {
     // Apply styles based on the selected mode
     const root = document.documentElement;
-    const modeColors = isDarkMode ? darkModeColors : lightModeColors;
+    const modeColors = isDarkMode ? data.darkModeColors : data.lightModeColors;
 
     Object.entries(modeColors).forEach(([property, value]) => {
       root.style.setProperty(property, value);
@@ -125,7 +87,7 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              {navItems.map((item) => (
+              {data.navItems.map((item) => (
                 <li key={item.id} className="nav-item">
                   <ScrollLink
                     to={item.id}
@@ -141,9 +103,9 @@ const Navbar = () => {
                   </ScrollLink>
                 </li>
               ))}
-              <li class="nav-item dropdown position-static">
+              <li className="nav-item dropdown position-static">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
                   role="button"
@@ -157,7 +119,7 @@ const Navbar = () => {
                   className="dropdown-menu dropdown-menu-end"
                   aria-labelledby="navbarDropdown"
                 >
-                  {dropdownItems.map((item, index) => (
+                  {data.dropdownItems.map((item, index) => (
                     <React.Fragment key={index}>
                       <li>
                         <a className="dropdown-item" href="#">
@@ -170,7 +132,7 @@ const Navbar = () => {
                           <b>{item.text}</b>
                         </a>
                       </li>
-                      {index < dropdownItems.length - 1 && (
+                      {index < data.dropdownItems.length - 1 && (
                         <li>
                           <hr className="dropdown-divider" style={{color: "var(--color-black)"}}/>
                         </li>

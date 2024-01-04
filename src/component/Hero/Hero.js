@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import data from "../../data.json"
 
 const Hero = () => {
   return (
@@ -8,7 +9,7 @@ const Hero = () => {
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border-2 shadow-lg shadow-y">
           <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
             <h3 className="display-5 fw-bold lh-2 text-body-emphasis styles">
-              Get Close to <strong>Maithili</strong> Language more with{" "}
+              Get Close to <strong>Maithili</strong> Language more with
               <br></br>
               <span className="slide-in-bump">
                 <strong>MaiBERT</strong>
@@ -16,13 +17,7 @@ const Hero = () => {
               <hr></hr>
             </h3>
             <p className="lead styles">
-              "Immerse in Maithili Language Intelligence! Elevate your experience
-              with our Maithili Text Classification Project. Explore the depths
-              of BERT architecture as we enhance understanding, build robust
-              models, expand language support, and provide a user-friendly
-              interface. Join us on a journey of linguistic innovation, where
-              every word matters and every classification refines our language
-              understanding. Welcome to the future of Maithili text analysis."
+             "{data.hero.description}"
             </p>
             <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
               <a

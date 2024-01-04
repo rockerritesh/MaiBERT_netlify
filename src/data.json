@@ -1,0 +1,66 @@
+
+{
+    "navItems": [
+      { "id": "home", "label": "Home" },
+      { "id": "about", "label": "Project Objective" },
+      { "id": "scope", "label": "Scope" },
+      { "id": "limi", "label": "Limitations & Enhancement" }
+    ],
+
+    "dropdownItems": [
+        { "text": "Latest", "icon": "fa-clock" },
+        { "text": "Sports", "icon": "fa-futbol" },
+        { "text": "Politics", "icon": "fa-balance-scale" },
+        { "text": "EduTech", "icon": "fa-graduation-cap" },
+        { "text": "Literature", "icon": "fa-book" }
+      ],
+      "lightModeColors": {
+        "--color-white": "#fff",
+        "--color-darkslateblue": "#043873",
+        "--color-cornflowerblue": "#4f9cf9",
+        "--color-khaki": "#ffe492",
+        "--color-gray-100": "#212529",
+        "--color-gray-200": "#01252a",
+        "--primary-100": "#c4defd",
+        "--color-black": "#212529",
+        "--color-hero": "#fff"
+      },
+      "darkModeColors": {
+        "--color-white": "#212529",
+        "--color-darkslateblue": "#3066A0",
+        "--color-cornflowerblue": "#4f9cf9",
+        "--color-khaki": "#beb976",
+        "--color-gray-100": "#4f9cf9",
+        "--color-gray-200": "#0b1820",
+        "--primary-100": "#234080",
+        "--color-black": "#fff",
+        "--color-hero": "#343a40"
+      },
+
+      "services": [
+        { "name": "Classifier", "link": "/" },
+        { "name": "Masking Model", "link": "/" }
+      ],
+
+      "usefulLinks": [
+        { "label": "Latest News", "link": "/" },
+        { "label": "Political News", "link": "/" },
+        { "label": "Sports News", "link": "/" },
+        { "label": "EduTech News", "link": "/" }
+      ],
+
+      "contactInfo": [
+        { "icon": "fas fa-home", "text": "Lalitpur, Nepal" },
+        { "icon": "fas fa-envelope", "text": "maibert.classifier@gmail.com" },
+        { "icon": "fas fa-phone", "text": "+9779812345670" },
+        { "icon": "fas fa-print", "text": "+01 234 567 89" }
+      ],
+      "hero": {
+        "description": "Immerse in Maithili Language Intelligence! Elevate your experience with our Maithili Text Classification Project. Explore the depths of BERT architecture as we enhance understanding, build robust models, expand language support, and provide a user-friendly interface. Join us on a journey of linguistic innovation, where every word matters and every classification refines our language understanding. Welcome to the future of Maithili text analysis."
+      },
+      "footer":{
+        "tagline":"Elevate your maithili language experience with us."
+      }
+
+}
+

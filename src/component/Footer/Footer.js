@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import data from "../../data.json"
 
 const Footer = () => {
   const FooterStyle = {
@@ -9,24 +10,6 @@ const Footer = () => {
     color: "var(--color-black)",
   };
 
-  const Service = [
-    { name: "Classifier", link: "/" },
-    { name: "Masking Model", link: "/" },
-  ];
-
-  const usefulLinks = [
-    { label: "Latest News", link: "/" },
-    { label: "Political News", link: "/" },
-    { label: "Sports News", link: "/" },
-    { label: "EduTech News", link: "/" },
-  ];
-
-  const contactInfo = [
-    { icon: 'fas fa-home', text: 'Lalitpur, Nepal' },
-    { icon: 'fas fa-envelope', text: 'maibert.classifier@gmail.com' },
-    { icon: 'fas fa-phone', text: '+ 9779812345670' },
-    { icon: 'fas fa-print', text: '+ 01 234 567 89' },
-  ];
   return (
     <footer className="text-center text-lg-start" style={FooterStyle}>
       {/* Section: Social media */}
@@ -71,14 +54,14 @@ const Footer = () => {
                 MaiBERT
               </a>
               <p className="my-2">
-                Elevate your maithili language experience with us.
+                {data.footer.tagline}
               </p>
             </div>
             {/* Grid column */}
 
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Service</h6>
-              {Service.map((service, index) => (
+              {data.services.map((service, index) => (
                 <p key={index}>
                   <a href={service.link} className="text-no-decoration">
                     {service.name}
@@ -89,7 +72,7 @@ const Footer = () => {
             {/* Grid column */}
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
-              {usefulLinks.map((link, index) => (
+              {data.usefulLinks.map((link, index) => (
                 <p key={index}>
                   <a href={link.link} className="text-no-decoration">
                     {link.label}
@@ -101,7 +84,7 @@ const Footer = () => {
 
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-              {contactInfo.map((info, index) => (
+              {data.contactInfo.map((info, index) => (
                 <p key={index}>
                   <i className={info.icon + " me-3"}></i> {info.text}
                 </p>
