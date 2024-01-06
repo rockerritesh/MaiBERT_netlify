@@ -4,7 +4,17 @@
       { "id": "home", "label": "Home" },
       { "id": "about", "label": "Project Objective" },
       { "id": "scope", "label": "Scope" },
-      { "id": "limi", "label": "Limitations & Enhancement" }
+      { "id": "limi", "label": "Limitations & Enhancement" },
+      { "id": "news", "label": "News" }
+    ],
+
+    "newsNavItems":[
+      { "id": "/", "label": "Home" },
+      { "id": "/politics", "label": "Politics" },
+      { "id": "/sports", "label": "Sports" },
+      { "id": "/edutech", "label": "EduTech" },
+      { "id": "/literature", "label": "Literature" },
+      { "id": "/news", "label": "News" }
     ],
 
     "dropdownItems": [
@@ -55,6 +65,7 @@
         { "icon": "fas fa-phone", "text": "+9779812345670" },
         { "icon": "fas fa-print", "text": "+01 234 567 89" }
       ],
+
       "hero": {
         "description": "Immerse in Maithili Language Intelligence! Elevate your experience with our Maithili Text Classification Project. Explore the depths of BERT architecture as we enhance understanding, build robust models, expand language support, and provide a user-friendly interface. Join us on a journey of linguistic innovation, where every word matters and every classification refines our language understanding. Welcome to the future of Maithili text analysis."
       },

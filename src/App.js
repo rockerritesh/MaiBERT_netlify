@@ -9,32 +9,37 @@ import Scope from "./component/Scope/Scope";
 import LimitationEnhancement from "./component/LimitationFutureEnhancement/LimitationEnhancement";
 
 function App() {
+  const fromValue = "app";
+
   return (
     <>
-    <div className="appdiv"> 
-      <Navbar />
-      <ToastContainer
-      toastStyle={{ backgroundColor: "var(--color-cornflowerblue)" , color:"var(--color-black)"}}
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-      />
-      <div className="container-fluid hero-bg">
-        <Hero />
-      </div>
-      <Element name="about" className="element">
-        <About />
-      </Element>
-      <hr></hr>
-      <Element name="scope" className="element">
-        <Scope />
-      </Element>
-      <hr></hr>
-      <Element name="limitation" className="element">
-        <LimitationEnhancement/>
-      </Element>
-      <hr></hr>
-      <Footer />
+      <div className="appdiv">
+        <Navbar from={fromValue} />
+        <ToastContainer
+          toastStyle={{
+            backgroundColor: "var(--color-cornflowerblue)",
+            color: "var(--color-black)",
+          }}
+          position="top-right"
+          autoClose={1000}
+          hideProgressBar={false}
+        />
+        <div className="container-fluid hero-bg">
+          <Hero />
+        </div>
+        <Element name="about" className="element">
+          <About />
+        </Element>
+        <hr></hr>
+        <Element name="scope" className="element">
+          <Scope />
+        </Element>
+        <hr></hr>
+        <Element name="limitation" className="element">
+          <LimitationEnhancement />
+        </Element>
+        <hr></hr>
+        <Footer />
       </div>
     </>
   );

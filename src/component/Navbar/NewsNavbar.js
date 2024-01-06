@@ -2,44 +2,16 @@ import React, { useState, useEffect } from "react";
 // import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Navbar.css";
-import { Link as ScrollLink } from "react-scroll";
+// import { Link as ScrollLink } from "react-scroll";
 import { Link } from 'react-router-dom';
 import data from "../../data.json";
 
-const Navbar = ({ from }) => {
+const NewsNavbar = () => {
   const [activeNavItem, setActiveNavItem] = useState("home");
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem("isDarkMode") === "true" || false
   );
   // const [initialRender, setInitialRender] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      // const homeOffset = document.getElementById("home").offsetTop - 50;
-      const aboutOffset = document.getElementById("about").offsetTop - 50;
-      const scopeOffset = document.getElementById("scope").offsetTop - 50;
-      const limiOffset = document.getElementById("limi").offsetTop - 50;
-      if (scrollY < aboutOffset) {
-        setActiveNavItem("home");
-      } else if (scrollY >= aboutOffset && scrollY < scopeOffset) {
-        setActiveNavItem("about");
-      } else if (scrollY >= scopeOffset && scrollY < limiOffset) {
-        setActiveNavItem("scope");
-      } else if (scrollY >= limiOffset) {
-        setActiveNavItem("limi");
-      } else {
-        setActiveNavItem("");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const handleNavItemClick = (item) => {
     setActiveNavItem(item);
@@ -54,13 +26,14 @@ const Navbar = ({ from }) => {
       root.style.setProperty(property, value);
     });
 
-    // // Show a toast notification when mode is activated, but not on the initial render
+    // Show a toast notification when mode is activated, but not on the initial render
     // if (!initialRender) {
     //   toast.dark(isDarkMode ? "Dark mode is active!" : "Light mode is active!");
     // } else {
     //   // It's the first render, update the initialRender state
     //   setInitialRender(false);
     // }
+    // Save dark mode preference to localStorage
     localStorage.setItem("isDarkMode", isDarkMode);
   }, [isDarkMode]);
 
@@ -91,34 +64,7 @@ const Navbar = ({ from }) => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              {from === "app"
-                ? data.navItems.map((item) => (
-                    <li key={item.id} className="nav-item">
-                      {item.label === "News"? 
-                      <Link
-                        to={item.id}
-                        className={`nav-link ${
-                          activeNavItem === item.id ? "active" : ""
-                        }`}
-                        onClick={() => handleNavItemClick(item.id)}
-                      >
-                        <strong>{item.label}</strong>
-                      </Link> :
-                      <ScrollLink
-                        to={item.id}
-                        spy={true}
-                        smooth={true}
-                        duration={10}
-                        className={`nav-link ${
-                          activeNavItem === item.id ? "active" : ""
-                        }`}
-                        onClick={() => handleNavItemClick(item.id)}
-                      >
-                        <strong>{item.label}</strong>
-                      </ScrollLink> }
-                    </li>
-                  ))
-                : data.newsNavItems.map((item) => (
+              {data.newsNavItems.map((item) => (
                     <li key={item.id} className="nav-item">
                       <Link
                         to={item.id}
@@ -201,4 +147,4 @@ const Navbar = ({ from }) => {
   );
 };
 
-export default Navbar;
+export default NewsNavbar;
