@@ -12,8 +12,12 @@
       { "id": "/", "label": "Home" },
       { "id": "/politics", "label": "Politics" },
       { "id": "/sports", "label": "Sports" },
-      { "id": "/edutech", "label": "EduTech" },
+      { "id": "/economy", "label": "Economy" },
       { "id": "/literature", "label": "Literature" },
+      { "id": "/entertainment", "label": "Entertainment" },
+      { "id": "/culture", "label": "Culture" },
+      { "id": "/edutech", "label": "EduTech" },
+      { "id": "/opinion", "label": "Opinion" },
       { "id": "/news", "label": "News" }
     ],
 

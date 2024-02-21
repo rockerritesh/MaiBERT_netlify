@@ -2,89 +2,6 @@
 /**********************************/
 /********** Top News CSS **********/
 /**********************************/
-.bg{
-    background-color: var(--color-white);
-}
-
-.top-news {
-    position: relative;
-    width: 100%;
-    padding: 30px 0 0 0;
-}
-
-
-.top-news .col-md-6 {
-    margin-bottom: 30px;
-}
-
-.top-news .tn-img {
-    position: relative;
-    overflow: hidden;
-}
-
-.top-news .tn-img img {
-    width: 100%;
-    border-radius: 0.5rem;
-}
-
-.top-news .tn-img:hover img {
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-}
-
-.top-news .tn-content {
-    position: absolute;
-    top: 0; 
-    right: 0;
-    bottom: 0; 
-    left: 0;
-    padding: 15px 10px 15px 20px;
-    background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
-    display: flex;
-    align-items: flex-end;
-}
-
-.top-news .tn-content a.tn-date{
-    display: block;
-    width: 100%;
-    margin-bottom: 5px;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 400;
-    transition: .3s;
-    letter-spacing: 1px;
-    text-decoration: none;
-}
-
-.top-news .tn-content a.tn-date i {
-    margin-right: 5px;
-}
-
-.top-news .tn-content a.tn-date:hover {
-    text-decoration: none;
-}
-
-.top-news .tn-content a.tn-title {
-    display: block;
-    width: 100%;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 400;
-    transition: .3s;
-    text-decoration: none;
-}
-
-.top-news .tn-left .tn-content a.tn-title {
-    font-size: 35px;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.top-news .tn-content a.tn-title:hover {
-    color: var(--color-cornflowerblue);
-}
-
-
 /**********************************/
 /******* Category News CSS ********/
 /**********************************/
@@ -92,6 +9,7 @@
     position: relative;
     width: 100%;
     padding: 0;
+    transition: transform 0.3s ease;
 }
 
 .cat-news .col-md-6 {
@@ -102,12 +20,23 @@
     color: var(--color-black);
     font-size: 35px;
     font-weight: 700;
-    margin-left: 40px;
+    margin-left: 0;
 }
 
+/* .cat-news .next {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    cursor: pointer;
+    border-radius: 0.2rem;
+
+} */
+
 .cat-news h2 i {
-    top: 8px;
-    left: 15px;
+    padding-right: 0.5rem;
     font-size: 28px;
 }
 
@@ -119,26 +48,28 @@
 .cat-news .cn-img img {
     width: 100%;
     border-radius: 0.5rem;
+    
 }
 
 .cat-news .cn-img:hover img {
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
-.cat-news .cn-content {
+.cat-news .cn-content-inner {
     position: absolute;
-    top: 0; 
+    top: 70%; 
     right: 0;
     bottom: 0; 
     left: 0;
-    padding: 15px 10px 15px 20px;
+    /* padding: 15px 10px 15px 20px; */
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    /* align-items: flex-end; */
 }
 
-.cat-news .cn-content a.cn-date {
+.cat-news .cn-content-inner .cn-date {
     display: block;
     width: 100%;
     margin-bottom: 5px;
@@ -150,15 +81,15 @@
     text-decoration: none;
 }
 
-/* .cat-news .cn-content a.cn-date i {
+.cat-news .cn-content-inner a.cn-date i {
     margin-right: 5px;
-} */
+}
 
-.cat-news .cn-content a.cn-date:hover {
+.cat-news .cn-content-inner a.cn-date:hover {
     text-decoration: none;
 }
 
-.cat-news .cn-content a.cn-title {
+.cat-news .cn-content-inner a.cn-title {
     display: block;
     width: 100%;
     color: #ffffff;
@@ -168,17 +99,25 @@
     text-decoration: none;
 }
 
-.cat-news .cn-content a.cn-title:hover {
+.cat-news .cn-content-inner a.cn-title:hover {
     color: var(--color-cornflowerblue);
 }
 
+.cat-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
 
-
-
-
-
-
-
+.cat-news .next{
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+.cat-news .next:hover{
+    color: var(--color-cornflowerblue);
+}
 
 /**********************************/
 /********** Main News CSS *********/
@@ -356,6 +295,7 @@
     margin-bottom: 1rem;
 }
 
+
 .news-title{
     font-size: 4rem;
     font-weight: 5rem;    
@@ -392,12 +332,19 @@
 .heroimage-container {
     position: relative;
     margin-bottom: 1rem;
+    overflow: hidden;
 }
 
 .heroimage {
     width: 100%;
     height: auto;
     border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.heroimage:hover{
+    transform: scale(1.1);
 }
 
 .linear-blur {
@@ -434,6 +381,16 @@
     text-align: center;
 }
 
+.textonimage:hover{
+    color: var(--color-cornflowerblue);
+    cursor: pointer;
+}
+
+.textonimage1:hover{
+    color: var(--color-cornflowerblue);
+    cursor: pointer;
+}
+
 .textonimage1 h1,
 .textonimage1 h3 {
     font-size: 1rem;
@@ -450,3 +407,10 @@
     height: 100%;
     z-index: -1;
 }
+
+/**********************************/
+/**********Slider css *********/
+/**********************************/
+/* Slider.css (create a new CSS file) */
+
+

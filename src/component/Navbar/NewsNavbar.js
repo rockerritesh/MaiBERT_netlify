@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import data from "../../data.json";
 
 const NewsNavbar = () => {
-  const [activeNavItem, setActiveNavItem] = useState("home");
+  const [activeNavItem, setActiveNavItem] = useState("/news");
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem("isDarkMode") === "true" || false
   );
