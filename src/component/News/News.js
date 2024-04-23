@@ -3,6 +3,8 @@ import Footer from "../Footer/Footer";
 import NewsNavbar from "../Navbar/NewsNavbar";
 import Spinner from "./Spinner";
 import NewsItem from "./NewsItem";
+import localForage from 'localforage';
+
 
 const News = (props) => {
   const [loading, setLoading] = useState(true);
@@ -10,27 +12,50 @@ const News = (props) => {
 
   useEffect(() => {
     // Check if cached data is still valid before fetching new data
-    const cachedJson = localStorage.getItem(props.cacheNews);
-    const cachedTime = localStorage.getItem(props.cacheTime);
+    fetchDataFromCache();
+  }, [props.cacheNews, props.cacheTime, props.label]);
 
-    if (
-      cachedJson &&
-      cachedTime &&
-      Date.now() - parseInt(cachedTime, 10) < 24 * 60 * 60 * 1000
-    ) {
-      // Use the cached data if it's not expired
-      setCachedData(JSON.parse(cachedJson));
-      setLoading(false);
-    } else {
-      // Fetch new data if cached data is expired
+  const fetchDataFromCache = async () => {
+    try {
+      const cachedJson = await localForage.getItem(props.cacheNews);
+      const cachedTime = await localForage.getItem(props.cacheTime);
+
+      if (
+        cachedJson &&
+        cachedTime &&
+        Date.now() - parseInt(cachedTime, 10) < 1*60*60*1000
+      ) {
+        // Use the cached data if it's not expired
+        setCachedData(JSON.parse(cachedJson));
+        // setLoading(false); // ehh
+        fetchDataFromApi(); // ehh
+
+      } else {
+        // Fetch new data if cached data is expired
+        fetchDataFromApi();
+      }
+    } catch (error) {
+      console.error("Error fetching data from cache:", error);
+      // Fetch new data if there's an error retrieving cached data
       fetchDataFromApi();
     }
-  }, [props.cacheNews, props.cacheTime, props.label]); // Include props.label in the dependency array
+  };
 
   const fetchDataFromApi = async () => {
     const url =
-      "https://rockerritesh.github.io/maithili-news-gnews/last_100_news.json";
+      "https://raw.githubusercontent.com/rockerritesh/maithili-news-gnews/main/docs/filename.json";
     setLoading(true);
+
+    let responseData = await fetch(url);
+    let parsedData = await responseData.json();
+    // Optionally filter the data based on the label
+    const filteredData =
+      props.label === "any"
+        ? parsedData
+        : parsedData.filter((item) => item.label === props.label);
+
+    const reversedData = filteredData.reverse().slice(0, 200);
+    setCachedData(reversedData);
 
     try {
       let responseData = await fetch(url);
@@ -41,12 +66,12 @@ const News = (props) => {
           ? parsedData
           : parsedData.filter((item) => item.label === props.label);
 
-      const reversedData = filteredData.slice(0, 100).reverse();
-      setCachedData(reversedData);
+      const reversedData = filteredData.reverse();
+      setCachedData(reversedData);  // ehhhh
 
-      // Store the cached data and timestamp in localStorage
-      localStorage.setItem(props.cacheNews, JSON.stringify(reversedData));
-      localStorage.setItem(props.cacheTime, Date.now().toString());
+      // Store the cached data and timestamp in IndexedDB using localForage
+      await localForage.setItem(props.cacheNews, JSON.stringify(reversedData)); //ehh 
+      await localForage.setItem(props.cacheTime, Date.now().toString());        // ehh
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -68,7 +93,7 @@ const News = (props) => {
           .split(', '); // Convert the string into an array
   
     // Choose any URL from the middle of the array, or use a default URL if the array is empty
-    return imageUrls.length > 0 ? imageUrls[4] : 'https://th.bing.com/th/id/OIG4.9F3EXs056LkGaQHyeuza?pid=ImgGn';
+    return imageUrls.length > 0 ? imageUrls[imageUrls.length/2] : 'https://th.bing.com/th/id/OIG4.9F3EXs056LkGaQHyeuza?pid=ImgGn';
   };
   
   return (
