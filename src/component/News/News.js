@@ -29,7 +29,7 @@ const News = (props) => {
 
   const fetchDataFromApi = async () => {
     const url =
-      "https://rockerritesh.github.io/maithili-news-gnews/filename.json";
+      "https://rockerritesh.github.io/maithili-news-gnews/last_100_news.json";
     setLoading(true);
 
     try {
