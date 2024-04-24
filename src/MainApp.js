@@ -21,6 +21,8 @@ function MainApp() {
           <Route path="/opinion" element={<News cacheNews="opinionNews" label="Opinion" cacheTime="opinionTime" />} />
           <Route path="/edutech" element={<News cacheNews="edutechNews" label="Edutech" cacheTime="edutechTime" />} />
           <Route path="/culture" element={<News cacheNews="cultureNews" label="Culture" cacheTime="cultureTime" />} />
+          <Route path="/health" element={<News cacheNews="healthNews" label="Health" cacheTime="healthTime" />} />
+          <Route path="/interview" element={<News cacheNews="interviewNews" label="Interview" cacheTime="interviewTime" />} />
           <Route path="/details/:title" element={<NewsDesc />} />
         </Routes>
       </Router>

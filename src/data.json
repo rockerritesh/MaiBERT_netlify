@@ -18,6 +18,8 @@
       { "id": "/culture", "label": "Culture" },
       { "id": "/edutech", "label": "EduTech" },
       { "id": "/opinion", "label": "Opinion" },
+      { "id": "/health", "label": "Health" },
+      { "id": "/interview", "label": "Interview" },
       { "id": "/news", "label": "News" }
     ],
 
